@@ -9,7 +9,7 @@ export function watch() {
 
   bot.onText(RULE, (msg) => {
     const chatId = msg.chat.id
-    const todoList = todos[chatId]
+    const todoList = todos[chatId] || []
 
     let message = 'Your to-do items are:\n'
     todoList.forEach((item, index) => {
