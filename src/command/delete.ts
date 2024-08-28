@@ -1,11 +1,12 @@
 import { getBotInstance } from '../common'
-import { COMMAND_RULE } from '../constant'
 import { todos } from '../store'
+
+export const RULE = /\/delete/
 
 export function watch() {
   const bot = getBotInstance()
 
-  bot.onText(COMMAND_RULE.DELETE, (msg) => {
+  bot.onText(RULE, (msg) => {
     const chatId = msg.chat.id
     const todoList = todos[chatId]
     bot.sendMessage(chatId, 'Click an item to delete:', {

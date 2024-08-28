@@ -1,12 +1,13 @@
 
 import { getBotInstance } from '../common'
-import { COMMAND_RULE } from '../constant'
 import { todos } from '../store'
+
+const RULE = /\/list/
 
 export function watch() {
   const bot = getBotInstance()
 
-  bot.onText(COMMAND_RULE.LIST, (msg) => {
+  bot.onText(RULE, (msg) => {
     const chatId = msg.chat.id
     const todoList = todos[chatId]
 

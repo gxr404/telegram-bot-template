@@ -1,11 +1,12 @@
 import { getBotInstance } from '../common'
-import { COMMAND_RULE } from '../constant'
 import { todos } from '../store'
+
+export const RULE = /\/add (.+)/
 
 export function watch() {
   const bot = getBotInstance()
 
-  bot.onText(COMMAND_RULE.ADD, (msg, match) => {
+  bot.onText(RULE, (msg, match) => {
     const chatId = msg.chat.id
     const text = match ? match[1] :''
     if (!todos[chatId]) {
